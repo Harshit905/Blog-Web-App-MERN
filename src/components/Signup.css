@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+
+.signup1 {
+    margin: 10px auto;
+    position: relative;
+    background-color: white;
+    padding: 1% 1% 1%;
+    min-width: 350px;
+    width: 60%;
+    border: 2px solid white;
+    border-radius: 13px;
+    padding-top: 2%;
+
+}
+
+
+#email_signup,
+#password_signup,
+#name_signup {
+    padding: 0 3%;
+    width: 40%;
+    height: 40px;
+    color: #404040;
+    background: white;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;
+    font-family: Poppins;
+    /* margin-left: 12%; */
+    background-color: #e6e6e6;
+}
+#avatar_signin{
+    width: 5%;
+    height:5%;
+    margin-left:48%;
+}
+.input_div_signup{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    justify-content: center;
+    column-gap: 2.5rem;
+}
+.edu_details_input{
+    padding: 0 3%;
+    width: 100%;
+    height: 40px;
+    color: #404040;
+    background: white;
+    border: 2px solid #e6e6e6;
+    border-radius: 50px;
+    font-family: Poppins;
+    /* margin-left: 12%; */
+    display: inline-block;
+    background-color: #e6e6e6;
+}
+.edu_details_input input{
+ display: inline-block;
+    width: 60%;
+}
+.edu_div_signup{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.signup-div-about .input input,
+.signup-div-about .input textarea{
+    width: 100%;
+    padding: 3px 8px 8px 42px;
+    border: 1px solid #d4d4d8;
+    border-radius: 4px;
+    background-color: #fafafa;
+   
+}
+.signup-div-about .input i {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    color: #4b5563;
+  }
+  .signup-div-about .input {
+    position: relative;
+    margin-bottom: -20px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    #email_signup,
+    #password_signup,
+    #name_signup{
+
+        width: 80%;
+    }
+    .signup1 {
+       
+        width: 100%;
+    
+    }
+  }
+/* #signin{
+    font-family: Poppins;
+    width: 100px;
+    background-color: #57b846; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px 28px;
+    padding-left: 25px;
+    border-radius: 25px;
+    transition-duration: 0.4s;
+    margin-left: 28%;
+    
+} */
+/* #signin:hover{
+    background-color: #57b846; 
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+   
+} */
+
+/* .p_login{
+    text-align: center;
+} */
+/* .alertcomp{
+    position: absolute;
+    top: 75px;
+    right: 10px;
+} */
+/* .headinglogsignpage{
+    color: #e6e6e6;
+    margin-top: 20px;
+    font-size:20px;
+text-align: center;
+} */

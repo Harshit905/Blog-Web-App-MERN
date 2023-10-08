@@ -1,0 +1,86 @@
+.edit-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.edit-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #777;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.edit-content {
+    text-align: center;
+}
+
+.edit-title,
+.edit-description,
+.edit-tags {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.save-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 0;
+    /* Make sure it's behind the edit box */
+    transition: backdrop-filter 0.3s ease;
+    /* Add transition for smooth blur effect */
+}
+
+/* Show the edit box */
+.edit-box.show {
+    display: block;
+}
+/* Add this CSS to your stylesheets or use a CSS-in-JS solution */
+.welcome-message {
+    font-size: 24px !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+  }
+  
+  .user-name {
+    color: #007bff !important; /* Change the color to your preference */
+    font-weight: bold !important;
+  }
