@@ -30,7 +30,7 @@ const formatDate = (date) => {
 
 
   return (
-    <div>
+    <div className='aboutuser-body'>
       {/* <h1>This is about user page.</h1>
       <p>{users.name}</p>
       <p>{users.email}</p>

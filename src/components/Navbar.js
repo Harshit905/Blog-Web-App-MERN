@@ -11,9 +11,9 @@ const Navbar = (props) => {
   const togglerClick = () => {
     setIsNavOpen(!isNavOpen);
   };
-useEffect(()=>{
-  closeBox()
-},[]);
+// useEffect(()=>{
+//   closeBox()
+// },[]);
   const navLinkClick = () => {
     if (isNavOpen) {
       togglerClick();
@@ -76,7 +76,7 @@ useEffect(()=>{
               <li>
                 <Link to="/about" className={`${location.pathname === "/about" ? "active-nav" : ""}`}><i className="fa fa-file" ></i>  About</Link>
               </li>
-              {/* <li><Link  to="/service" className={`${location.pathname==="/service"?"active-nav":""}`}><i className="fa fa-cogs" ></i>  Service</Link></li> */}
+              <li><Link  to="/blogs" className={`${location.pathname==="/blogs"?"active-nav":""}`}><i className="fa fa-newspaper"></i> Blogs</Link></li>
               <li>
                 <Link to="/contact" className={`${location.pathname === "/contact" ? "active-nav" : ""}`}><i className="fa fa-envelope" ></i>  Contact</Link>
               </li>

@@ -1,6 +1,11 @@
-
+.aboutuser-body{
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid blue; */
+  width: 90%;
+}
 .about-card {
-    width: 100%;
+    width: 80%;
     height: 100%;
     margin-top: 3rem;
     border-radius: 10px;
@@ -8,12 +13,14 @@
     column-gap: 5rem;
     justify-content: center;
     align-items: center;
+    /* border: 2px solid red; */
   }
   .card-header{
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 350px;
+    
     min-height: 350px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
@@ -26,11 +33,12 @@
      justify-content: center;
      /* align-items: center; */
      flex-direction: column;
-     max-width: 40% ;
+     
      min-height: 350px;
      min-width: 350px;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
+    /* border: 1px solid green; */
   }
   
   .card-body:hover,.card-header:hover {
@@ -45,7 +53,7 @@
   }
   
   .name {
-    font-size: 24px;
+    font-size: 1.5em;
     margin: 0;
     font-family: 'Pacifico', cursive;
   }
@@ -55,8 +63,8 @@
   .student-id,
   .occupation,
   .skills,.major,.about_yourself,.github {
-    font-size: 16px;
-    margin: 10px 0;
+    font-size: 1em;
+    margin: 0.5em 0;
     /* text-align: center; */
   }
   
@@ -69,6 +77,14 @@
     text-decoration: underline;
   }
   
+  @media screen and (max-width: 1200px){
+    .aboutuser-body{
+      width: 100%;
+    }
+    .about-card{
+      width: 100%;
+    }
+  }
   @media screen and (max-width: 767px){
     .about-card {
         display: flex;
@@ -76,7 +92,13 @@
         row-gap: 1.5rem;
         justify-content: center;
         align-items: center;
+        /* border: 2px solid green; */
       }
+      .card-body{
+        width: 100%;
+        /* border: 1px solid red; */
+      }
+      
   }
   .date_about{
     /* position: relative; */
