@@ -22,7 +22,7 @@
 }
 
 a.site-logo {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   font-weight: 700;
   font-style: oblique;
   /* text-transform: uppercase; */
@@ -45,7 +45,7 @@ a.site-logo {
 
 .site-navbar ul li a {
   color: #fff;
-  padding: 20px;
+  padding: 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -113,7 +113,17 @@ ul li a:hover {
 .mobile_user_btn {
   display: none;
 }
-
+@media screen and (max-width: 830px) {
+  .site-navbar ul li a {
+    color: #fff;
+    padding: 0.6rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .site-navbar ul li{
+    font-size: 14px;
+  }
+}
 
 /* mobile breakpoint start */
 @media screen and (max-width: 767px) {

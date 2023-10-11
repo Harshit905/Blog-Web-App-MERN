@@ -1,56 +1,94 @@
-.note-container-addnote{
-    background: #e9e9e9;
-    padding: 20px;
-    box-shadow: 20px 10px 20px 10px rgba(0,0,0, 0.5);
-    border: 2px solid red;
+.note-container-addnote {
+  background: #e9e9e9;
+  padding: 20px;
+  box-shadow: 20px 10px 20px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid red;
 }
 
 /* --------- */
-  /*  Preloader */
-  /* --------- */
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999999;
-    background-color: #0c0513;
-    background-image: url(./assets/pre.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+/*  Preloader */
+/* --------- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: #0c0513;
+  background-image: url(./assets/pre.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#preloader-none {
+  opacity: 0;
+}
+
+#no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* --------- */
+/*Scrollbar   */
+/* --------- */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2d005c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(77, 1, 165, 0.959);
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(121, 7, 250);
+  border-radius: 12px;
+}
+
+.blog-list {
+  /* border: 1px solid red; */
+}
+
+.blogs-box {
+  /* border: 3px solid black; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+  margin: 20px auto;
+  gap: 50px;
+}
+
+@media only screen and (max-width:600px) {
+  .blogs-box {
+    width: 94%;
   }
-  
-  #preloader-none {
-    opacity: 0;
+}
+
+@media only screen and (max-width:1020px) {
+  .blogs-box {
+    width: 80%;
   }
-  
-  #no-scroll {
-    overflow: hidden;
-    height: 100vh;
+}
+
+@media only screen and (max-width:890px) {
+  .blogs-box {
+    width: 90%;
   }
-  
-  /* --------- */
-  /*Scrollbar   */
-  /* --------- */
-  
-  ::-webkit-scrollbar {
-    width: 7px;
+}
+
+@media only screen and (max-width:727px) {
+  .blogs-box {
+    width: 95%;
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #2d005c;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(77, 1, 165, 0.959);
-    border-radius: 12px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(121, 7, 250);
-    border-radius: 12px;
-  }
+}

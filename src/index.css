@@ -7,6 +7,9 @@ body {
   /* background-image: linear-gradient(to right, rgb(142, 142, 142), rgba(1, 4, 39)); */
   background-image: linear-gradient(to right, rgb(170, 187, 214), rgba(147, 154, 210, 0.896));
 }
+.container-fluid{
+  padding: 0!important;
+}
 form label,form p,.note-icons i{
   color: rgba(1, 4, 39);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);

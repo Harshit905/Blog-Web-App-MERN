@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import React,{ useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -20,18 +20,19 @@ import USerState from './context/users/UserState';
 import BlogCard from "./components/BlogCard";
 import BlogPage from "./components/BlogPage";
 import blogs from "./data/blogs";
+import HeaderBlog from './components/HeaderBlog';
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type)=>{
-      setAlert({
-        msg: message,
-        type: type
-      })
-      setTimeout(() => {
-          setAlert(null);
-      }, 2000);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
   const [load, upadateLoad] = useState(true);
 
@@ -45,33 +46,36 @@ function App() {
 
   return (
     <USerState>
-    <NoteState>
-    <Router>
-    <Preloader load={load} />
-        <Navbar showAlert={showAlert} />
-        <Alert alert={alert}/>
-        <div className='container-fluid'>
-        <Switch>
-          {/* <Route exact path="/" showAlert={showAlert}  component={Home}/> */}
-          <Route exact path="/" render={() => <Home showAlert={showAlert} />} />
-          <Route exact path="/about" component={About}/>
-          {/* <Route exact path="/services" component={Services}/> */}
-          <Route exact path="/contact" component={Contact}/>
-          <Route exact path="/aboutuser" component={AboutUser}/>
-          <Route exact path="/blogs" render={() => (
-            <div className="blog-list">
-              {blogs.map((blog) => (
-                <BlogCard key={blog.id} blog={blog} />
-              ))}
-            </div>
-          )} />
-          <Route path="/blog/:id" component={BlogPage} />
-           <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
-            <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
-        </Switch>
-        </div>
-    </Router>
-    </NoteState>
+      <NoteState>
+        <Router>
+          <Preloader load={load} />
+          <Navbar showAlert={showAlert} />
+          <Alert alert={alert} />
+          <div className='container-fluid'>
+            <Switch>
+              {/* <Route exact path="/" showAlert={showAlert}  component={Home}/> */}
+              <Route exact path="/" render={() => <Home showAlert={showAlert} />} />
+              <Route exact path="/about" component={About} />
+              {/* <Route exact path="/services" component={Services}/> */}
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/aboutuser" component={AboutUser} />
+              <Route exact path="/blogs" render={() => (
+                <div className="blog-list">
+                  <HeaderBlog />
+                  <div className='blogs-box'>
+                    {blogs.map((blog) => (
+                      <BlogCard key={blog.id} blog={blog} />
+                    ))}
+                  </div>
+                </div>
+              )} />
+              <Route path="/blog/:id" component={BlogPage} />
+              <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
+              <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
+            </Switch>
+          </div>
+        </Router>
+      </NoteState>
     </USerState>
   );
 }
