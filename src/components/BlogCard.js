@@ -1,26 +1,36 @@
 // components/BlogCard.js
-import React from "react";
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
+import blogContext from "../context/blogs/blogContext"
 import "./SideBlogCard.css"
 const BlogCard = ({ blog }) => {
-  return (
+  const context_blogs = useContext(blogContext)
+  const { blogs, getAllBlogs } = context_blogs;
 
+  const formatDate = (date) => {
+    const options = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
+
+  return (
     <div className="blog-card">
-      <div class="card">
-        <div class="img-container"></div>
-        <div class="card-content">
-          <h1>{blog.title}</h1>
-          <p class="excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia odio dolorem amet, sunt magnam asperiores exercitationem consequuntur? Molestias asperiores rerum doloremque reiciendis.{blog.content.slice(0, 100)}...</p>
-          <Link className="readmoreblogbtn" to={`/blog/${blog.id}`}>Read More</Link>
+      <div className="card">
+        <div className="img-container"></div>
+        <div className="card-content">
+          <h1 style={{ textTransform: "uppercase", fontSize: "1.3rem", color: "#555" }}>{blog.title}</h1>
+          <p className="excerpt">{blog.content.slice(0, 200)}...</p>
+          <p><Link className="readmoreblogbtn" to={`/blog/${blog._id}`} key={blog._id} blog={blog}>Read More</Link></p>
           <div className="author_date">
-          <p class="author">By Jrom <br /> <a href="mailto:example@email.com">ayush@gmail.com</a>  </p>
+            <p className="author"><span style={{color:"#007BFF"}}>Author</span> : <span style={{cursor:"pointer"}}>{blog.author}</span><br /> <a href="mailto:example@email.com">ayush@gmail.com</a>  </p>
           </div>
-          <p class="blog_date">written on : Date</p>
-        
+          <p className="blog_date">written on : {formatDate(blog.date)}</p>
         </div>
       </div>
     </div>
   );
 };
-
 export default BlogCard;

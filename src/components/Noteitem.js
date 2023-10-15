@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import noteContext from "../context/notes/noteContext";
 import './NoteItem.css'; // Create this CSS file for styling
 
-const NoteItem = (props) => {
+const NoteItem = (props) => { 
   const { note, updateNote } = props;
   const context = useContext(noteContext) ;
   const { deleteNote } = context;

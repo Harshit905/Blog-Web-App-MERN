@@ -16,11 +16,12 @@ import Signup from './components/Signup';
 import Preloader from "./components/PreLoader"
 import Login from './components/Login';
 import USerState from './context/users/UserState';
-
+import BlogState from './context/blogs/BlogState';
+import Blog from './components/Blog';
 import BlogCard from "./components/BlogCard";
 import BlogPage from "./components/BlogPage";
-import blogs from "./data/blogs";
-import HeaderBlog from './components/HeaderBlog';
+import WriteBlog from './components/WriteBlog';
+
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [alert, setAlert] = useState(null);
@@ -45,7 +46,9 @@ function App() {
   }, []);
 
   return (
+
     <USerState>
+    <BlogState>
       <NoteState>
         <Router>
           <Preloader load={load} />
@@ -59,23 +62,16 @@ function App() {
               {/* <Route exact path="/services" component={Services}/> */}
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/aboutuser" component={AboutUser} />
-              <Route exact path="/blogs" render={() => (
-                <div className="blog-list">
-                  <HeaderBlog />
-                  <div className='blogs-box'>
-                    {blogs.map((blog) => (
-                      <BlogCard key={blog.id} blog={blog} />
-                    ))}
-                  </div>
-                </div>
-              )} />
+              <Route exact path="/blogs" render={() => <Blog showAlert={showAlert} />} /> 
               <Route path="/blog/:id" component={BlogPage} />
               <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
               <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
+              <Route exact path="/write-blog" render={() => <WriteBlog showAlert={showAlert} />} />
             </Switch>
           </div>
         </Router>
       </NoteState>
+      </BlogState>
     </USerState>
   );
 }

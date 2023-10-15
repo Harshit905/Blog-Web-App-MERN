@@ -4,7 +4,7 @@ import NoteContext from "./noteContext";
 const NoteState = (props) => {
   const host = "http://localhost:5000"
   const notesInitial = []
-  // Get all Notes
+  // Get user Notes
   const getNotes = async () => {
     // API Call 
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {

@@ -31,24 +31,28 @@
   
   /* blog page css */
   .blog-card{
-  
-    border-radius: 20px;
+    /* border-radius: 20px; */
+    /* display: inline-block; */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .card:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-  }
+  
   .card {
     background-color: #e5e5e5;
-    max-width: 950px;
+    /* max-width: 1000px; */
+    /* width: 70%; */
     box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
     border-radius: 3px;
     display: grid;
+    /* border: 1px solid green; */
     /* grid-template-column: repeat(5, 1fr); */
     
+  }
+  .card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
   }
   .card .img-container {
     width: 230px;
@@ -61,8 +65,18 @@
   }
   .card-content {
     grid-column: 3 / 5;
-    padding: 5px 30px;
+    /* padding: 5px 30px; */
     border-left: 1px solid #ccc;
+  }
+  .card-content p{
+    padding: 0 10px;
+    margin-top: 0;
+  }
+  .card-content h1{
+    margin: 5px;
+  }
+  .card-content .author_date p{
+    padding: 0 10px;
   }
   h2 {
     text-transform: uppercase;
@@ -101,10 +115,13 @@ cursor: pointer;
 color: #062a49;
   }
   .blog_date{
-position: absolute;
+/* position: absolute;
 right: 6px;
-top: 2px;
+top: 2px; */
+padding: 0;
+margin: 0;
 font-size: 9px;
+text-align: end;
 font-style: italic;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -112,15 +129,38 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   /* blog page css */
   .blog-page{
     /* border: 1px solid blue; */
+    
     display: flex;
     width: 80%;
     margin: 20px auto;
     justify-content: space-between;
   }
   .blog-content{
+    margin-top: 10px;
     width: 65%;
+    padding-right: 2rem;
+    /* padding-left: 1rem;  */
     /* border: 2px solid red; */
     border-right: 2px solid rgba(152, 152, 152, 0.649);
+  }
+  .main-content{
+   
+    padding: 1rem;
+    background-color: #050505be;
+  }
+  .main-content h2{
+   color: #007BFF !important;
+  }
+  .main-content p{
+    color: #e5e5e5;
+    padding: 15px;
+    text-align: justify !important;
+  }
+  .main-content h5{
+    color: #e5e5e5;
+    font-size: 10px;
+    font-style: italic;
+    text-align: end;
   }
   .blog-content h2{
     text-align: center;
@@ -147,5 +187,15 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
       display: block;
       width: 100%;
       margin: 0 auto;
+      padding: 0;
+    }
+    .blog-page{
+      width: 90%;
+    }
+    .main-content{
+      padding: 4px;
+    }
+    .blog-page img{
+      display: none;
     }
 }

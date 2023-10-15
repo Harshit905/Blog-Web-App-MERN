@@ -17,7 +17,7 @@ const [users, setUsers] = useState(usersInitial);
       }
     });
     const json = await response.json()
-    console.log(json)
+    // console.log(json)
     setUsers(json)
   }
 

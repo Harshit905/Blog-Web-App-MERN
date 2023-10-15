@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     width: 100%;
 }
 
@@ -18,7 +17,7 @@
     box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
     border-radius: 3px;
     display: block;
-
+    padding: 7px;
 
 
 }

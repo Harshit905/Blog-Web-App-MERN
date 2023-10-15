@@ -95,7 +95,7 @@ const Navbar = (props) => {
             </ul>
 
             <div className={`${isInfoBoxOpen ? "non-active" : "active"}`} id="infoBox">
-              <span class="close-icon" onClick={closeBox}><i  class="fas fa-times"></i></span>
+              <span className="close-icon" onClick={closeBox}><i  className="fas fa-times"></i></span>
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMr_Ky37u_30imoav7-kzi01LCBOh88WP6hu2r3IkXUJaQsWexdA" alt="avatar" />
               <p className='name_user'>{users.name}</p>
               <p className='email_user'>{users.email}</p>
