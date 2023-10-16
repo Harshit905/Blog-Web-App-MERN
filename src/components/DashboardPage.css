@@ -9,7 +9,7 @@
   .dashboard-block {
     width: 300px;
     height: 200px;
-    margin: 20px; /* Add spacing between the blocks */
+    margin: 90px; /* Add spacing between the blocks */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,8 @@
     font-weight: bold;
     border: 2px solid #ccc;
     transition-duration: 0.4s;
+    background: url('../assets/taniaflower.png');
+    background-size: cover;
   }
   
   .dashboard-block-1 {
