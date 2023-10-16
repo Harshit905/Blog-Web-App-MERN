@@ -1,0 +1,52 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 91.5vh;
+    flex-wrap: wrap; /* Allow blocks to wrap to the next line on smaller screens */
+  }
+  
+  .dashboard-block {
+    width: 300px;
+    height: 200px;
+    margin: 20px; /* Add spacing between the blocks */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    transition-duration: 0.4s;
+  }
+  
+  .dashboard-block-1 {
+    background-color: #3498db;
+  
+  }
+  .linkDashboard{
+    color: #fff;
+    text-decoration: none;
+  }
+  .dashboard-block-2 {
+    background-color: #e74c3c;
+  }
+  
+  .dashboard-block:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  /* Add media query for smaller screens (e.g., mobile devices) */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column; /* Stack blocks in a column on smaller screens */
+      align-items: center; /* Center the blocks horizontally */
+    }
+  
+    .dashboard-block {
+      width: 90%; /* Make the blocks full width of the screen */
+    }
+  }
+  

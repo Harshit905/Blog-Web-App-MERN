@@ -34,7 +34,7 @@ const Login = (props) => {
   return (
 
     <form onSubmit={handleSubmit}>
-    <p className='headinglogsignpage'>Please Signup/Login to continue to NoteCanvas</p>
+    <p className='headinglogsignpage'>Please Signup/Login to continue...</p>
       <div className="login1">
         <img id="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMr_Ky37u_30imoav7-kzi01LCBOh88WP6hu2r3IkXUJaQsWexdA" alt="avatar" />
         <p className='p_login'><b>Member Login</b></p>

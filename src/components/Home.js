@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
-import Notes from './Notes'
 
+import DashboardPage from './DashboardPage';
 // import AddNote from './AddNote'
 const Home = (props) => {
  
   const {showAlert}=props;
   return (
     <>
-      <Notes showAlert={showAlert}/>
+    <DashboardPage showAlert={showAlert}/>
+   
     </>
   )
 }

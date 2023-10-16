@@ -21,6 +21,8 @@ import Blog from './components/Blog';
 import BlogCard from "./components/BlogCard";
 import BlogPage from "./components/BlogPage";
 import WriteBlog from './components/WriteBlog';
+import NotesDashboard from './components/NotesDashboard';
+import BlogsDashboard from './components/BlogsDashboard';
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
@@ -58,6 +60,8 @@ function App() {
             <Switch>
               {/* <Route exact path="/" showAlert={showAlert}  component={Home}/> */}
               <Route exact path="/" render={() => <Home showAlert={showAlert} />} />
+              <Route exact path="/notes-dashboard" render={() => <NotesDashboard showAlert={showAlert} />} />
+              <Route exact path="/blogs-dashboard" render={() => <BlogsDashboard showAlert={showAlert} />} />
               <Route exact path="/about" component={About} />
               {/* <Route exact path="/services" component={Services}/> */}
               <Route exact path="/contact" component={Contact} />
@@ -66,7 +70,7 @@ function App() {
               <Route path="/blog/:id" component={BlogPage} />
               <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
               <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
-              <Route exact path="/write-blog" render={() => <WriteBlog showAlert={showAlert} />} />
+              <Route exact path="/create-blog" render={() => <WriteBlog showAlert={showAlert} />} />
             </Switch>
           </div>
         </Router>

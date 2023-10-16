@@ -13,7 +13,7 @@ const WriteBlog = () => {
                                 <form className="form-horizontal" role="form" method="POST">
                                     <div className="form-group">
                                         <div className="col-md-12">
-                                            <input type="text" className="form-control" name="title" placeholder="Title" autoFocus autoCapitalize=''/>
+                                            <input type="text" className="form-control" name="title" placeholder="Title" autoFocus />
                                         </div>
                                     </div>
                                     <div className="form-group">

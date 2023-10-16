@@ -31,7 +31,7 @@ const BlogState = (props) => {
         });
         const json = await response.json()
         // console.log(json)
-        setBlogs(json.reverse())
+        setuserBlogs(json.reverse())
     }
 
      //get blog by id
@@ -49,6 +49,9 @@ const BlogState = (props) => {
     }
 
     const [blogs, setBlogs] = useState(blogsInitial);
+    const [userblogs, setuserBlogs] = useState(blogsInitial);
+
+
     // Add a Blog
     const addBlog = async (title, content, tag, date, inbrief, author) => {
         // TODO: API Call
@@ -111,7 +114,7 @@ const BlogState = (props) => {
 
 
     return (
-        <BlogContext.Provider value={{ blogs, addBlog, deleteBlog, editBlog, getAllBlogs,getUserBlogs,getBlogById }}>
+        <BlogContext.Provider value={{ userblogs,blogs, addBlog, deleteBlog, editBlog, getAllBlogs,getUserBlogs,getBlogById }}>
             {props.children}
         </BlogContext.Provider>
     )
