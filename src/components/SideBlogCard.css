@@ -50,4 +50,15 @@
     .side-blog-card {
         display: none;
     }
+    .blog-edit-del-icons{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.blog-edit-del-icons{
+    display: flex;
+    justify-content: space-between;
+}
+.icons-blogs i{
+    padding-right: 7px;
 }

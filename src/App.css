@@ -66,24 +66,27 @@
   justify-content: center;
   width: 70%;
   margin: 20px auto;
-  gap: 50px;
+  gap: 25px;
 }
 
 @media only screen and (max-width:600px) {
   .blogs-box {
     width: 94%;
+    gap: 10px;
   }
 }
 
 @media only screen and (max-width:1020px) {
   .blogs-box {
     width: 80%;
+    gap: 20px;
   }
 }
 
 @media only screen and (max-width:890px) {
   .blogs-box {
     width: 90%;
+    gap: 15px;
   }
 }
 

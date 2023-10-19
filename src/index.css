@@ -5,8 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(to right, rgb(142, 142, 142), rgba(1, 4, 39)); */
-  /* background-image: linear-gradient(to right, rgb(14, 98, 235), rgba(147, 154, 210, 0.896)); */
-  background-image: url("./assets/Lanka.jpg");
+  background-image: linear-gradient(to right, rgb(14, 98, 235), rgba(147, 154, 210, 0.896));
+  /* background-image: url("./assets/Lanka.jpg"); */
   /* background-position: cover; */
   background-repeat: no-repeat;
   background-size: cover;

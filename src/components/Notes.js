@@ -47,7 +47,7 @@ const Notes = (props) => {
         <>
             <div className='container my-3'>
                 <p className="welcome-message">
-                    Welcome to your Dashboard, <span className="user-name">{users.name}!</span>
+                    Welcome to your Notes Dashboard, <span className="user-name">{users.name}!</span>
                 </p>
                 <hr/>
                 

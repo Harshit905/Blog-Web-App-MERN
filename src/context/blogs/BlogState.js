@@ -51,68 +51,79 @@ const BlogState = (props) => {
     const [blogs, setBlogs] = useState(blogsInitial);
     const [userblogs, setuserBlogs] = useState(blogsInitial);
 
-
-    // Add a Blog
-    const addBlog = async (title, content, tag, date, inbrief, author) => {
-        // TODO: API Call
-        const response = await fetch(`${host}/api/blogs/addblog`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token'),
-            },
-            body: JSON.stringify({ title, content, tag, date, inbrief, author })
-        });
-
-        const blog = await response.json();
-        console.log(blog)
-
-        setBlogs(blogs => [blog, ...blogs]);
-    }
-   
-
-
-    // Delete a Blog
-    const deleteBlog = async (id) => {
-        // console.log("delete "+id)
-        const response = await fetch(`${host}/api/blogs/deleteblog/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token'),
+    const addBlog = async (title, content, tag, inbrief, author) => {
+        try {
+            const response = await fetch(`${host}/api/blogs/addblog`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token'),
+                },
+                body: JSON.stringify({ title, content, tag, inbrief, author })
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error("Error:", errorData);
+            } else {
+                const blog = await response.json();
+                console.log("Blog added:", blog);
+                setBlogs(blogs => [blog, ...blogs]);
             }
-        });
-        const json = await response.json();
-        const newBlogs = blogs.filter((blog) => { return blog._id !== id });
-        setBlogs(newBlogs);
-    }
-
-    const editBlog = async (id, title, content, tag, date, author, inbrief) => {
-        const response = await fetch(`${host}/api/blogs/updateblog/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem('token'),
-            },
-            body: JSON.stringify({ title, content, tag, date, author, inbrief })
-        });
-        const json = await response.json();
-
-        setBlogs((prevBlogs) => {
-            return prevBlogs.map((blog) => {
-                if (blog._id === id) {
-                    return {
-                        ...blog,
-                        title, content, tag, date, author, inbrief
-                    };
-                } else {
-                    return blog;
+        } catch (error) {
+            console.error("API call failed:", error);
+        }
+    };
+  
+    const deleteBlog = async (id) => {
+        try {
+            const response = await fetch(`${host}/api/blogs/deleteblog/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token'),
                 }
             });
-        });
+            
+            if (response.ok) {
+                // Remove the deleted blog from the state
+                setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+            } else {
+                const errorData = await response.json();
+                console.error("Error:", errorData);
+            }
+        } catch (error) {
+            console.error("API call failed:", error);
+        }
+    }
+    
+    const editBlog = async (id, title, content, tag, author, inbrief, date) => {
+        try {
+            const response = await fetch(`${host}/api/blogs/updateblog/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "auth-token": localStorage.getItem('token'),
+                },
+                body: JSON.stringify({ title, content, tag, author, inbrief, date })
+            });
+    
+            if (response.ok) {
+                const updatedBlog = await response.json();
+    
+                // Update the state with the edited blog
+                setBlogs((prevBlogs) =>
+                    prevBlogs.map((blog) => (blog._id === id ? updatedBlog : blog))
+                );
+            } else {
+                const errorData = await response.json();
+                console.error("Error:", errorData);
+            }
+        } catch (error) {
+            console.error("API call failed:", error);
+        }
     };
-
-
+    
     return (
         <BlogContext.Provider value={{ userblogs,blogs, addBlog, deleteBlog, editBlog, getAllBlogs,getUserBlogs,getBlogById }}>
             {props.children}
