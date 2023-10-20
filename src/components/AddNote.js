@@ -38,7 +38,7 @@ const AddNote = (props) => {
                 <input type="text" id="tag" name='tag' value={note.tag} onChange={onChange}   placeholder="Add a tag" minLength={5} />
               
             </div>
-            <button disabled={note.title.length<5 || note.description.length<5} type="submit" className='button-sp ' onClick={handleClick}>Collect Note</button>
+            <button disabled={note.title.length<5 || note.description.length<5} type="submit" className='button-sp' onClick={handleClick}>Collect Note</button>
         </form>
         </div>
 

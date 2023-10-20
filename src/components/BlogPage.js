@@ -53,7 +53,7 @@ const BlogPage = () => {
       <img src={blogTitle} width={40} style={{position:"absolute"}} alt="" />
         <div className="blog-content">
           <div className="main-content">
-            <h2>{blogPost.title}</h2>
+            <h2 style={{textAlign:"start",fontSize:"1.6rem",padding:"0px 0.8rem"}}>{blogPost.title}</h2>
             <p>{blogPost.content}.</p>
             <div className="conclusion">
               <p style={{textAlign:"start"}}><span style={{color:"#007BFF"}}>Conclusion</span>&nbsp;: {blogPost.inbrief}</p>

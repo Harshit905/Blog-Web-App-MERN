@@ -2,10 +2,13 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import blogContext from "../context/blogs/blogContext"
+import userContext from "../context/users/userContext"
 import "./SideBlogCard.css"
 const BlogCard = ({ blog }) => {
   const context_blogs = useContext(blogContext)
   const { blogs, getAllBlogs } = context_blogs;
+  const context_users = useContext(userContext)
+  const { users } = context_users;
 
   const formatDate = (date) => {
     const options = {
@@ -28,7 +31,7 @@ const BlogCard = ({ blog }) => {
           <p><Link className="readmoreblogbtn" to={`/blog/${blog._id}`} key={blog._id} blog={blog}>Read More</Link></p>
           <div className="author_date" style={{ display: "flex", justifyContent: "flex-start", alignItems: "flex-start", flexDirection: "column", gap: "0" }}>
             <p className="author"><span style={{ color: "#007BFF" }}>Author</span> : <span style={{ cursor: "pointer" }}>{blog.author}</span></p>
-            <a style={{ marginLeft: "10px", textDecoration: "none", fontFamily: "-moz-initial", padding: "0", fontSize: "0.8rem", color: "#007BFF" }} href="mailto:example@email.com">ayush@gmail.com</a>
+            {/* <a style={{ marginLeft: "10px", textDecoration: "none", fontFamily: "-moz-initial", padding: "0", fontSize: "0.8rem", color: "#007BFF" }} href="mailto:example@email.com">{users.email}</a> */}
           </div>
           <p className="blog_date">written on : {formatDate(blog.date)}</p>
         </div>

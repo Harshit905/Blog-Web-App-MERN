@@ -19,7 +19,7 @@ const BlogState = (props) => {
         setBlogs(json.reverse());
     }
 
-    // Get user all Blogs
+    // G,l̥et user all Blogs
     const getUserBlogs = async () => {
         // API Call 
         const response = await fetch(`${host}/api/blogs/fetchuserblogs`, {
@@ -47,7 +47,7 @@ const BlogState = (props) => {
         // console.log(json)
         return json;
     }
-
+ 
     const [blogs, setBlogs] = useState(blogsInitial);
     const [userblogs, setuserBlogs] = useState(blogsInitial);
 
@@ -84,19 +84,29 @@ const BlogState = (props) => {
                     "auth-token": localStorage.getItem('token'),
                 }
             });
-            
+    
             if (response.ok) {
                 // Remove the deleted blog from the state
                 setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+                console.log("Blog deleted successfully.");
+                
+                // Display a success message to the user
+                // props.showAlert("Blog deleted successfully", "success");
             } else {
                 const errorData = await response.json();
-                console.error("Error:", errorData);
+                console.error("Error deleting the blog:", errorData);
+    
+                // Display an error message to the user
+                // props.showAlert("Error deleting the blog", "error");
             }
         } catch (error) {
             console.error("API call failed:", error);
-        }
-    }
     
+            // Display an error message to the user
+            // props.showAlert("API call failed", "error");
+        }
+    };
+
     const editBlog = async (id, title, content, tag, author, inbrief, date) => {
         try {
             const response = await fetch(`${host}/api/blogs/updateblog/${id}`, {
@@ -110,19 +120,20 @@ const BlogState = (props) => {
     
             if (response.ok) {
                 const updatedBlog = await response.json();
-    
-                // Update the state with the edited blog
-                setBlogs((prevBlogs) =>
-                    prevBlogs.map((blog) => (blog._id === id ? updatedBlog : blog))
-                );
+                
+                // Assuming 'success' is a property of the response JSON
+                return { success: true, data: updatedBlog };
             } else {
                 const errorData = await response.json();
                 console.error("Error:", errorData);
+                return { success: false, error: errorData };
             }
         } catch (error) {
             console.error("API call failed:", error);
+            return { success: false, error };
         }
     };
+    
     
     return (
         <BlogContext.Provider value={{ userblogs,blogs, addBlog, deleteBlog, editBlog, getAllBlogs,getUserBlogs,getBlogById }}>

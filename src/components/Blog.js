@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
 import BlogCard from "./BlogCard";
 import HeaderBlog from './HeaderBlog';
 import blogContext from "../context/blogs/blogContext"
@@ -8,6 +8,9 @@ const Blog = (props) => {
     const { showAlert } = props;
     const context_blogs = useContext(blogContext)
     const { blogs, getAllBlogs } = context_blogs;
+     const HandleAlert = () => {
+    props.showAlert("Please Login/Signup to continue to Create Your Blog ", "info");
+  }
     useEffect(() => {
 
         getAllBlogs()
@@ -35,6 +38,18 @@ const Blog = (props) => {
                         </div>
                         }
                     </div>
+                    {
+                !localStorage.getItem('token') ? 
+                  
+                <Link to="/login" onClick={HandleAlert} className="create-blog-button btn btn-primary button-sp mb-3">
+                    Create Your Blog
+                </Link>
+                   : 
+                  <Link to="/create-blog" className="create-blog-button btn btn-primary button-sp mb-3">
+                    Create Your Blog
+                </Link>
+                
+              }
                     {blogs.map((blog) => (
                         <BlogCard key={blog._id} showAlert={showAlert} blog={blog} />
                     ))}

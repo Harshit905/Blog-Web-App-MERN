@@ -12,9 +12,9 @@ function YourBlogs(props) {
     const refClose = useRef(null)
 
     const context_user_blogs = useContext(blogContext)
-    const { userblogs, getUserBlogs,editBlog,deleteBlog } = context_user_blogs;
+    const { userblogs, getUserBlogs, editBlog, deleteBlog } = context_user_blogs;
 
-    const [blog, setBlog] = useState({ id: "", etitle: "", econtent: "", etag: "",eauthor:"",einbrief:"" })
+    const [blog, setBlog] = useState({ id: "", etitle: "", econtent: "", etag: "", eauthor: "", einbrief: "" })
     useEffect(() => {
         getUserBlogs()
     }, [])
@@ -23,16 +23,28 @@ function YourBlogs(props) {
         ref.current.click()
         setBlog({ id: currentBlog._id, etitle: currentBlog.title, econtent: currentBlog.content, etag: currentBlog.tag, eauthor: currentBlog.author, einbrief: currentBlog.inbrief })
     }
+    
     const handleClick = (e) => {
         editBlog(blog.id, blog.etitle, blog.econtent, blog.etag, blog.eauthor, blog.einbrief)
-        refClose.current.click();
-        props.showAlert("Blog Updated", "success")
-    }
-
+            .then((response) => {
+                if (response && response.success) {
+                    refClose.current.click();
+                    props.showAlert('Blog Updated', 'success');
+                    getUserBlogs();
+                } else {
+                    props.showAlert('Blog Update Failed', 'error');
+                }
+            })
+            .catch((error) => {
+                console.error('Error updating the blog:', error);
+                props.showAlert('Blog Update Failed', 'error');
+            });
+    };
+    
     const onChange = (e) => {
         setBlog({ ...blog, [e.target.name]: e.target.value })
     }
-    
+
     return (
         <>
             <div className="blog-list">
@@ -51,11 +63,11 @@ function YourBlogs(props) {
                                 <form className="my-3">
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Title</label>
-                                        <input type="text" className="form-control" id="etitle" name="etitle" value={blog.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
+                                        <input type="text" className="form-control" id="etitle" name="etitle" value={blog.etitle} onChange={onChange} minLength={5} required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="description" className="form-label">Content</label>
-                                        <textarea type="text" className="form-control" id="edescription" name="edescription" value={blog.econtent} onChange={onChange} minLength={5} required />
+                                        <textarea type="text" className="form-control" id="econtent" name="econtent" value={blog.econtent} onChange={onChange} minLength={5} required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="tag" className="form-label">Tag</label>
@@ -67,7 +79,7 @@ function YourBlogs(props) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="inbrief" className="form-label">InBrief</label>
-                                        <input type="text" className="form-control" id="inbrief" name="inbrief" value={blog.einbrief} onChange={onChange} />
+                                        <input type="text" className="form-control" id="einbrief" name="einbrief" value={blog.einbrief} onChange={onChange} />
                                     </div>
                                 </form>
                             </div>
@@ -79,7 +91,7 @@ function YourBlogs(props) {
                     </div>
                 </div>
                 <div className='blogs-box'>
-                <h2>Your Blogs</h2>
+                    <h2>Your Blogs</h2>
                     <div className="">
                         {userblogs.length === 0 && <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} > <img width={200} src={noNotesImage} alt="No notes" />
                             <h2>Sorry, there are no blogs written by you available. </h2>
@@ -94,15 +106,15 @@ function YourBlogs(props) {
                         }
                     </div>
 
-                    
 
-                <Link to="/create-blog" className="create-blog-button btn button-sp mb-3">
-                    Create A Blog
-                </Link>
+
+                    <Link to="/create-blog" className="create-blog-button btn btn-primary button-sp mb-3">
+                        Create A Blog
+                    </Link>
 
                     {
                         userblogs.map((blog) => (
-                            <YourBlogItem key={blog.id} updateBlog={updateBlog} showAlert={props.showAlert} blog={blog} />
+                            <YourBlogItem key={blog._id} updateBlog={updateBlog} showAlert={props.showAlert} blog={blog} />
                         ))
                     }
                 </div>

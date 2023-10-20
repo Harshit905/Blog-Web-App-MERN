@@ -138,8 +138,10 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   .blog-content{
     margin-top: 10px;
-    width: 65%;
+    width: 65%; 
     padding-right: 2rem;
+    overflow-y: scroll;
+    height: 80vh; 
     /* padding-left: 1rem;  */
     /* border: 2px solid red; */
     border-right: 2px solid rgba(152, 152, 152, 0.649);
@@ -175,6 +177,8 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: sticky;
+    top: 0;
   }
   .related-blogs h3{
     text-align: center;
@@ -191,12 +195,15 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
       padding: 0;
     }
     .blog-page{
-      width: 90%;
+      width: 98%;
     }
     .main-content{
       padding: 4px;
     }
     .blog-page img{
       display: none;
+    }
+    .main-content p{
+      padding: 5px;
     }
 }

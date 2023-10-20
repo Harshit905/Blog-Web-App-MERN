@@ -10,7 +10,7 @@ function Alert(props) {
     }
     
     return (
-        <div  className="alertcomp"style={{height: '50px'}}>
+        <div  className="alertcomp"style={{height: '50px',border:"none"}}>
         {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
            <strong>{capitalize(props.alert.type)}</strong>: {props.alert.msg} 
            {/* {props.alert.msg} */}

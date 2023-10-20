@@ -1,4 +1,3 @@
-
 // export default NoteItem
 import React, { useContext } from 'react';
 import noteContext from "../context/notes/noteContext";
