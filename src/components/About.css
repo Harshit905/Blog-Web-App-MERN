@@ -2,26 +2,27 @@
 
 .about-page {
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: #2a2a2b00;
     text-align: center;
   }
   
   .about-header h1 {
     font-size: 2.5rem;
-    color: #333;
+    color:#3c3c3c ;
+    font-weight: 600;
   }
   
   .about-header p {
     font-size: 1.2rem;
-    color: #666;
-    margin-top: -10px;
+    color: #fff8f8;
+    margin-top: 5px;
   }
   
   .about-content {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #2b2b2bbf;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -29,22 +30,24 @@
   .about-content h2 {
     font-size: 1.8rem;
     margin-top: 20px;
-    color: #333;
+    color:#3174f2 ;
   }
   
   .about-content p {
     font-size: 1rem;
-    color: #666;
+    color: #fafafa;
     margin-top: 10px;
+  }
+  .about-content ul li {
+    /* list-style: none; */
+    text-align: start;
+    color: #fafafa;
   }
   
   .about-content ul {
     list-style-type: disc;
     margin-left: 20px;
   }
-  .about-content ul li{
-    list-style: none;
-  }
-  
+
   /* Add more styles and customization as needed */
   

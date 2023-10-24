@@ -56,12 +56,12 @@ const Navbar = (props) => {
       <div className="navbar-area">
         <div className="container-fluid">
           <nav className={`site-navbar ${isNavOpen ? 'nav-open' : ''}`}>
-            <Link to="/" className="site-logo">NoteCanvas</Link>
+            <Link to="/" className="site-logo">BlogCanvas</Link>
             <ul className={`site-nav ${isNavOpen ? 'open' : ''}`}>
               {
                 !localStorage.getItem('token') ? 
                   <li>
-                    <Link to="/login" onClick={HandleAlert} className={`${location.pathname === "/" ? "active-nav" : ""}`} ><i className="fa-solid fa-house-user"></i>Dashboard</Link>
+                    <Link to="/login" onClick={HandleAlert} className={`${location.pathname === "/" ? "active-nav" : ""}`} ><i className="fa-solid fa-house-user"></i> Dashboard</Link>
                   </li> : <li>
                     <Link to="/" onClick={togglerClick} className={`${location.pathname === "/" ? "active-nav" : ""}`} ><i className="fa-solid fa-house-user"></i> Dashboard</Link>
                   </li>

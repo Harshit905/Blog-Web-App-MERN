@@ -87,7 +87,9 @@ const BlogState = (props) => {
     
             if (response.ok) {
                 // Remove the deleted blog from the state
-                setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+                const json = await response.json();
+                const newBlogs = userblogs.filter((blog) => { return blog._id !== id });
+                setuserBlogs(newBlogs);
                 console.log("Blog deleted successfully.");
                 
                 // Display a success message to the user
