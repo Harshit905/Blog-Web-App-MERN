@@ -4,8 +4,8 @@ body {
   font-family: "Raleway", serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to right, rgb(14, 98, 235), rgba(147, 154, 210, 0.896));
-  
+  /* background-image: linear-gradient(to right, rgb(14, 98, 235), rgba(147, 154, 210, 0.896)); */
+ background-color: #41be64; 
 }
 .container-fluid{
   padding: 0!important;
