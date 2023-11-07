@@ -91,46 +91,7 @@
     }
     .signup1 {
        
-        width: 100%;
+        width: 96%;
     
     }
   }
-/* #signin{
-    font-family: Poppins;
-    width: 100px;
-    background-color: #57b846; 
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    padding: 10px 28px;
-    padding-left: 25px;
-    border-radius: 25px;
-    transition-duration: 0.4s;
-    margin-left: 28%;
-    
-} */
-/* #signin:hover{
-    background-color: #57b846; 
-    color: white;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    cursor: pointer;
-   
-} */
-
-/* .p_login{
-    text-align: center;
-} */
-/* .alertcomp{
-    position: absolute;
-    top: 75px;
-    right: 10px;
-} */
-/* .headinglogsignpage{
-    color: #e6e6e6;
-    margin-top: 20px;
-    font-size:20px;
-text-align: center;
-} */

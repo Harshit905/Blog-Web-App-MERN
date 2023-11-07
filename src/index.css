@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 body {
   margin: 0;
-  font-family: "Raleway", serif !important;
+  font-family: "Lora", serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(to right, rgb(14, 98, 235), rgba(147, 154, 210, 0.896)); */
- background-color: #41be64; 
+ /* background-color: #a0edef;  */
+ background-image: linear-gradient(to left, rgb(5, 8, 40), rgb(1, 4, 39));
 }
 .container-fluid{
   padding: 0!important;
@@ -37,4 +38,14 @@ h2{
 .button-sp:hover {
   background-position: -200%;
   transition: background 300ms ease-in-out;
+}
+._404_notfound{
+font-weight: 900;
+font-size: 4rem;
+}
+@media screen and (max-width: 767px) {
+  ._404_notfound{
+    font-weight: 600;
+    font-size: 3rem;
+    }
 }

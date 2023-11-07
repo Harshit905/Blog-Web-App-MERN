@@ -69,7 +69,7 @@ const Navbar = (props) => {
               <li>
                 <Link to="/about" onClick={togglerClick} className={`${location.pathname === "/about" ? "active-nav" : ""}`}><i className="fa fa-file" ></i>  About</Link>
               </li>
-              <li><Link  to="/blogs" onClick={togglerClick} className={`${location.pathname==="/blogs"?"active-nav":""}`}><i className="fa fa-newspaper"></i> Blogs</Link></li>
+              <li><Link  to="/blogs" onClick={togglerClick} className={`${location.pathname==="/blogs"?"active-nav":""}`}><i class="fa-solid fa-book-journal-whills"></i> Blogs</Link></li>
               <li>
                 <Link to="/contact" onClick={togglerClick} className={`${location.pathname === "/contact" ? "active-nav" : ""}`}><i className="fa fa-envelope" ></i>  Contact</Link>
               </li>

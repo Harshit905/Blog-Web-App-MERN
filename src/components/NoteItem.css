@@ -117,8 +117,3 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
-.modal-design{
-  border-radius: 0;
-  border: 1px solid #007BFF;
-  background-color: #eae8e8;
-} 

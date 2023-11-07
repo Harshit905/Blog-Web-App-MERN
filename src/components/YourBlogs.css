@@ -4,4 +4,9 @@
     right: 20px; /* Adjust the distance from the right as needed */
     z-index: 999; /* Ensure it's above other content */
   }
-  
+  .modal-design{
+    border-radius: 0;
+    border: 1px solid #007BFF;
+    background-color: #eae8e8;
+  } 
+ 

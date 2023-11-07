@@ -23,7 +23,7 @@ function YourBlogs(props) {
         ref.current.click()
         setBlog({ id: currentBlog._id, etitle: currentBlog.title, econtent: currentBlog.content, etag: currentBlog.tag, eauthor: currentBlog.author, einbrief: currentBlog.inbrief })
     }
-    
+
     const handleClick = (e) => {
         editBlog(blog.id, blog.etitle, blog.econtent, blog.etag, blog.eauthor, blog.einbrief)
             .then((response) => {
@@ -40,15 +40,28 @@ function YourBlogs(props) {
                 props.showAlert('Blog Update Failed', 'error');
             });
     };
-    
+
     const onChange = (e) => {
         setBlog({ ...blog, [e.target.name]: e.target.value })
     }
 
     return (
         <>
-            <div className="blog-list">
-                <HeaderBlog />
+            <HeaderBlog />
+
+            <div className="blog-list d-flex justify-content-center" style={{ border: "1px solid red" }}>
+                <div className="bookmarks-nav d-flex justify-content-center align-items-center">
+                    <div >
+                        <div style={{ textAlign: "center", fontWeight: "700", cursor: "pointer" }}><i class="fa-solid fa-bookmark"></i><Link to="/bookmarks" > BOOKMARKS</Link></div>
+                        <div className="categories d-flex flex-wrap justify-content-center mt-4" style={{ border: "1px solid red" }}>
+                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
+                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
+                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
+                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
+                        </div>
+
+                    </div>
+                </div>
                 <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button>
@@ -62,23 +75,27 @@ function YourBlogs(props) {
                             <div className="modal-body">
                                 <form className="my-3">
                                     <div className="mb-3">
-                                        <label htmlFor="title" className="form-label">Title</label>
+                                        <label htmlFor="etitle" className="form-label">Title</label>
                                         <input type="text" className="form-control" id="etitle" name="etitle" value={blog.etitle} onChange={onChange} minLength={5} required />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="description" className="form-label">Content</label>
+                                        <label htmlFor="ecategory" className="form-label">Category</label>
+                                        <input type="text" className="form-control" id="ecategory" name="ecategory" value={blog.etitle} onChange={onChange} minLength={5} required />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="econtent" className="form-label">Content</label>
                                         <textarea type="text" className="form-control" id="econtent" name="econtent" value={blog.econtent} onChange={onChange} minLength={5} required />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="tag" className="form-label">Tag</label>
+                                        <label htmlFor="etag" className="form-label">Tag</label>
                                         <input type="text" className="form-control" id="etag" name="etag" value={blog.etag} onChange={onChange} />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="author" className="form-label">Author</label>
+                                        <label htmlFor="eauthor" className="form-label">Author</label>
                                         <input type="text" className="form-control" id="eauthor" name="eauthor" value={blog.eauthor} onChange={onChange} />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="inbrief" className="form-label">InBrief</label>
+                                        <label htmlFor="einbrief" className="form-label">InBrief</label>
                                         <input type="text" className="form-control" id="einbrief" name="einbrief" value={blog.einbrief} onChange={onChange} />
                                     </div>
                                 </form>

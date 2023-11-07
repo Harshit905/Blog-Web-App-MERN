@@ -12,7 +12,7 @@
 }
 
 .side-card {
-    background-color: #e5e5e5;
+    background-color: #98d0fdd6;
     max-width: 300px;
     box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
     border-radius: 3px;
@@ -59,6 +59,42 @@
     display: flex;
     justify-content: space-between;
 }
-.icons-blogs i{
+.blog-edit-del-icons h1{
+    margin: 5px;
+  color: #b9b9d6;
+  font-size: 1.8rem;
+}
+
+.icons-blogs .fa-edit{
     padding-right: 7px;
+    color: rgb(14, 104, 14);
+    cursor: pointer;
+}
+.icons-blogs .fa-edit:hover{
+    padding-right: 7px;
+    color: rgb(1, 222, 1);
+    cursor: pointer;
+}
+.icons-blogs .fa-trash-alt{
+    padding-right: 7px;
+    
+    color: rgb(196, 11, 11);
+    cursor: pointer;
+}
+.icons-blogs .fa-trash-alt:hover{
+    padding-right: 7px;
+    filter: contrast(1.7);
+    color: red;
+    cursor: pointer;
+}
+.readmoreblogbtn{
+    color: rgb(0, 0, 255);
+}
+.bookmark-icon{
+    color: aliceblue;
+    font-size: 1.7rem;
+}
+.bookmark-icon:hover{
+    color: rgb(6, 4, 51);
+    font-size: 1.7rem;
 }

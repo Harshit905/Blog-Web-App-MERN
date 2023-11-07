@@ -18,11 +18,12 @@ import Login from './components/Login';
 import USerState from './context/users/UserState';
 import BlogState from './context/blogs/BlogState';
 import Blog from './components/Blog';
-import BlogCard from "./components/BlogCard";
 import BlogPage from "./components/BlogPage";
+import BookmarkedBlogs from "./components/BookmarkedBlogs";
 import WriteBlog from './components/WriteBlog';
 import NotesDashboard from './components/NotesDashboard';
 import BlogsDashboard from './components/BlogsDashboard';
+import NotFound from './components/NotFound';
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
@@ -37,6 +38,8 @@ function App() {
       setAlert(null);
     }, 2000);
   }
+
+  
   const [load, upadateLoad] = useState(true);
 
   useEffect(() => {
@@ -67,10 +70,12 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/aboutuser" component={AboutUser} />
               <Route exact path="/blogs" render={() => <Blog showAlert={showAlert} />} /> 
+              <Route exact path="/bookmarked-blogs" render={() => <BookmarkedBlogs showAlert={showAlert} />} /> 
               <Route path="/blog/:id" component={BlogPage} />
               <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
               <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
               <Route exact path="/create-blog" render={() => <WriteBlog showAlert={showAlert} />} />
+              <Route component={NotFound} /> 
             </Switch>
           </div>
         </Router>
