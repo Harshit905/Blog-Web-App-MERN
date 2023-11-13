@@ -5,27 +5,34 @@ import blogContext from "../context/blogs/blogContext"
 import noNotesImage from '../assets/no-notes-image.png';
 import "./YourBlogs.css"
 import YourBlogItem from './YourBlogItem';
+import LeftSideNav from './LeftSideNav';
 function YourBlogs(props) {
     const { showAlert } = props;
-
+    const context_blogs = useContext(blogContext);
     const ref = useRef(null)
     const refClose = useRef(null)
 
     const context_user_blogs = useContext(blogContext)
-    const { userblogs, getUserBlogs, editBlog, deleteBlog } = context_user_blogs;
-
-    const [blog, setBlog] = useState({ id: "", etitle: "", econtent: "", etag: "", eauthor: "", einbrief: "" })
+    const { userblogs, getUserBlogs } = context_user_blogs;
+    const { blogs, getAllBlogs, fetchCategories, categories, editBlog, deleteBlog } = context_blogs;
+    const HandleAlert = () => {
+        props.showAlert(
+            "Please Login/Signup to continue to Create Your Blog ",
+            "info"
+        );
+    };
+    const [blog, setBlog] = useState({ id: "", etitle: "", econtent: "", etag: "", eauthor: "", ecategory: "", einbrief: "" })
     useEffect(() => {
         getUserBlogs()
     }, [])
 
     const updateBlog = (currentBlog) => {
         ref.current.click()
-        setBlog({ id: currentBlog._id, etitle: currentBlog.title, econtent: currentBlog.content, etag: currentBlog.tag, eauthor: currentBlog.author, einbrief: currentBlog.inbrief })
+        setBlog({ id: currentBlog._id, etitle: currentBlog.title, econtent: currentBlog.content, etag: currentBlog.tag, eauthor: currentBlog.author, ecategory: currentBlog.category, einbrief: currentBlog.inbrief })
     }
 
     const handleClick = (e) => {
-        editBlog(blog.id, blog.etitle, blog.econtent, blog.etag, blog.eauthor, blog.einbrief)
+        editBlog(blog.id, blog.etitle, blog.econtent, blog.etag, blog.eauthor, blog.einbrief, blog.ecategory)
             .then((response) => {
                 if (response && response.success) {
                     refClose.current.click();
@@ -50,18 +57,7 @@ function YourBlogs(props) {
             <HeaderBlog />
 
             <div className="blog-list d-flex justify-content-center" style={{ border: "1px solid red" }}>
-                <div className="bookmarks-nav d-flex justify-content-center align-items-center">
-                    <div >
-                        <div style={{ textAlign: "center", fontWeight: "700", cursor: "pointer" }}><i class="fa-solid fa-bookmark"></i><Link to="/bookmarks" > BOOKMARKS</Link></div>
-                        <div className="categories d-flex flex-wrap justify-content-center mt-4" style={{ border: "1px solid red" }}>
-                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
-                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
-                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
-                            <div className='mt-2' style={{ width: "40%", textAlign: "center ", border: "1px solid red" }}>Bookmark</div>
-                        </div>
-
-                    </div>
-                </div>
+                <LeftSideNav/>
                 <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button>
@@ -80,7 +76,7 @@ function YourBlogs(props) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="ecategory" className="form-label">Category</label>
-                                        <input type="text" className="form-control" id="ecategory" name="ecategory" value={blog.etitle} onChange={onChange} minLength={5} required />
+                                        <input type="text" className="form-control" id="ecategory" name="ecategory" value={blog.ecategory} onChange={onChange} minLength={5} required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="econtent" className="form-label">Content</label>
@@ -108,7 +104,7 @@ function YourBlogs(props) {
                     </div>
                 </div>
                 <div className='blogs-box'>
-                    <h2>Your Blogs</h2>
+                    <h2>Blogs by You</h2>
                     <div className="">
                         {userblogs.length === 0 && <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} > <img width={200} src={noNotesImage} alt="No notes" />
                             <h2>Sorry, there are no blogs written by you available. </h2>

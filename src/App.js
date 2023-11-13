@@ -24,6 +24,9 @@ import WriteBlog from './components/WriteBlog';
 import NotesDashboard from './components/NotesDashboard';
 import BlogsDashboard from './components/BlogsDashboard';
 import NotFound from './components/NotFound';
+import CategoryList from './components/CategoryList';
+import LeftSideNav from './components/LeftSideNav';
+import BlogByUser from './components/BlogByUser';
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
@@ -68,14 +71,17 @@ function App() {
               <Route exact path="/about" component={About} />
               {/* <Route exact path="/services" component={Services}/> */}
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/aboutuser" component={AboutUser} />
+              <Route exact path="/aboutuser/:id" component={AboutUser} />
               <Route exact path="/blogs" render={() => <Blog showAlert={showAlert} />} /> 
               <Route exact path="/bookmarked-blogs" render={() => <BookmarkedBlogs showAlert={showAlert} />} /> 
               <Route path="/blog/:id" component={BlogPage} />
               <Route exact path="/login" render={() => <Login showAlert={showAlert} />} />
               <Route exact path="/signup" render={() => <Signup showAlert={showAlert} />} />
               <Route exact path="/create-blog" render={() => <WriteBlog showAlert={showAlert} />} />
+              <Route exact path="/blogs-by-user/:id" render={() => <BlogByUser showAlert={showAlert} />} />
               <Route component={NotFound} /> 
+              <CategoryList />
+              <LeftSideNav showAlert={showAlert}/>
             </Switch>
           </div>
         </Router>

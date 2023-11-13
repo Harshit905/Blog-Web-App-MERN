@@ -4,6 +4,7 @@ import BlogCard from "./BlogCard";
 import HeaderBlog from "./HeaderBlog";
 import blogContext from "../context/blogs/blogContext";
 import noNotesImage from "../assets/no-notes-image.png";
+import LeftSideNav from "./LeftSideNav";
 const BookmarkedBlogs = (props) => {
   const { showAlert } = props;
   const context_blogs = useContext(blogContext);
@@ -28,68 +29,7 @@ const BookmarkedBlogs = (props) => {
         className="blog-list d-flex "
         style={{ border: "1px solid red" }}
       >
-        <div className="bookmarks-nav d-flex justify-content-center align-items-center">
-          <div>
-            <div
-              style={{
-                textAlign: "center",
-                fontWeight: "700",
-                cursor: "pointer",
-              }}
-            >
-              <i class="fa-solid fa-bookmark"></i>
-              <Link className="bookmarklink" to="/bookmarked-blogs">
-                {" "}
-                BOOKMARKS
-              </Link>
-            </div>
-            <div
-              className="categories d-flex flex-wrap justify-content-center mt-4"
-              style={{ border: "1px solid red" }}
-            >
-              <div
-                className="mt-2"
-                style={{
-                  width: "40%",
-                  textAlign: "center ",
-                  border: "1px solid red",
-                }}
-              >
-                Bookmark
-              </div>
-              <div
-                className="mt-2"
-                style={{
-                  width: "40%",
-                  textAlign: "center ",
-                  border: "1px solid red",
-                }}
-              >
-                Bookmark
-              </div>
-              <div
-                className="mt-2"
-                style={{
-                  width: "40%",
-                  textAlign: "center ",
-                  border: "1px solid red",
-                }}
-              >
-                Bookmark
-              </div>
-              <div
-                className="mt-2"
-                style={{
-                  width: "40%",
-                  textAlign: "center ",
-                  border: "1px solid red",
-                }}
-              >
-                Bookmark
-              </div>
-            </div>
-          </div>
-        </div>
+        <LeftSideNav/>
         <div className="blogs-box">
         <h2 >Your Bookmarks</h2>
           <div className="container mx-2">

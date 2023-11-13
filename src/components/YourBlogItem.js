@@ -45,7 +45,7 @@ const YourBlogItem = (props) => {
               ></i>
             </div>
           </div>
-          <p className="excerpt">{blog.content.slice(0, 500)}...</p>
+          <p className="excerpt">{blog.inbrief.slice(0, 500)}...</p>
           <p>
             <Link
               className="readmoreblogbtn"

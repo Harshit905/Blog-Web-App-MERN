@@ -51,6 +51,47 @@
     list-style-type: disc;
     margin-left: 20px;
   }
+  .user-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .user-blogs {
+    margin-top: 20px;
+  }
+
+  .user-follow-button {
+    margin-top: 10px;
+  }
+
+  .user-about {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .user-info {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
 
   /* Add more styles and customization as needed */
   

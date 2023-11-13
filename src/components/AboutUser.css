@@ -1,112 +1,174 @@
-.aboutuser-body{
-  display: flex;
-  justify-content: center;
-  /* border: 2px solid blue; */
-  width: 90%;
+.user-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 5px;
+  background-color: #15033bb8;
+  color: #ffffff;
+  border-radius: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
-.about-card {
-    width: 80%;
-    height: 100%;
-    margin-top: 3rem;
-    border-radius: 10px;
-    display: flex;
-    column-gap: 5rem;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid red; */
-  }
-  .card-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 350px;
-    
-    min-height: 350px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  .card-body{
-  background-color: #fff; 
-     border: 1px solid #ccc;
-     padding: 20px;
-     display: flex;
-     justify-content: center;
-     /* align-items: center; */
-     flex-direction: column;
-     
-     min-height: 350px;
-     min-width: 350px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-    /* border: 1px solid green; */
-  }
-  
-  .card-body:hover,.card-header:hover {
-    transform: scale(1.01);
-  }
-  
-  .profile-image {
+.user-container .fa-edit{
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+}
+
+.user-image {
+  max-width: 85%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-top: 20px; */
+}
+
+.user-blogs {
+  /* margin-top: 20px; */
+  padding: 0;
+  margin-top: 5px;
+  margin-left:1rem;
+}
+
+.user-follow-button {
+  margin-top: 10px;
+}
+
+.user-about {
+  margin-top: 20px;
+}
+
+.card-body {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column;
+    text-align: center;
     width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 1px solid #ccc;
   }
+  .user-blogs{
+    font-size: 0.7rem;
+    margin-left: 5px;
+  }
+  .user-container{
+    width: 97%;
+ 
+  }
+  .user-image{
+    width: 60%;
+
+  }
+  .user-about{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .user-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   
-  .name {
-    font-size: 1.5em;
-    margin: 0;
-    font-family: 'Pacifico', cursive;
   }
-  
-  .email,
-  .graduation,
-  .student-id,
-  .occupation,
-  .skills,.major,.about_yourself,.github {
-    font-size: 1em;
-    margin: 0.5em 0;
-    /* text-align: center; */
+  .user-about p{
+  text-align: center;
   }
-  
-  .github-link {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .github-link:hover {
-    text-decoration: underline;
-  }
-  
-  @media screen and (max-width: 1200px){
-    .aboutuser-body{
-      width: 100%;
-    }
-    .about-card{
-      width: 100%;
-    }
-  }
-  @media screen and (max-width: 767px){
-    .about-card {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1.5rem;
-        justify-content: center;
-        align-items: center;
-        /* border: 2px solid green; */
-      }
-      .card-body{
-        width: 100%;
-        /* border: 1px solid red; */
-      }
-      
-  }
-  .date_about{
-    /* position: relative; */
-    /* bottom: 2px; */
-    /* right: 2px; */
-    /* border: 1px solid red; */
-    padding: 0;
-margin: 0;
-text-align: end;
-font-size: 9px;
+}
+
+@keyframes follow-animation {
+  from {background: white; color: #3399FF; width: 85px; left: 50px;}
+  to {background: #2EB82E; border-color: #2EB82E; color: #ffffff; width: 120px; left: 35px;}
+}
+@keyframes unfollow-animation {
+  from {background: #2EB82E; color: #ffffff; width: 100px; left: 35px;}
+  to {background: white; border-color: #3399FF; color: #3399FF; width: 85px; left: 50px;}
+}
+
+input {
+  appearance: none;
+}
+
+input:after {
+  color: #3399FF;
+  font-family: "Helvetica";
+  font-size: 10pt;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #3399FF;
+  border-radius: 3px;	
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 15px;
+  content: '+ Follow';
+  -webkit-animation: unfollow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-fill-mode:forwards;
+  animation: unfollow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode:forwards;
+}
+
+input:checked:after {
+  content: 'Following';
+  -webkit-animation: follow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-fill-mode:forwards;
+  animation: follow-animation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-fill-mode:forwards;
+}	
+
+.user-icons ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+.user-iconsul li {
+  padding: 1rem;
+}
+
+.fab {
+  font-size: 2rem;
+  margin:0 10px;
+}
+
+/* transition for social icon hover animation */
+.fa-facebook,
+.fa-instagram,
+.fa-github
+.fa-twitter{
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+/* social media icons hover color */
+.fa-facebook:hover,
+.fa-facebook:focus {
+  color: #0048a7;
+  transform: scale(1.1);
+}
+
+.fa-twitter:hover,
+.fa-twitter:focus {
+  color: #096aa7;
+  transform: scale(1.1);
+}
+
+.fa-instagram:hover,
+.fa-instagram:focus {
+  color: #bd22a2;
+  transform: scale(1.1);
+}
+
+.fa-github:hover,
+.fa-github:focus {
+  color: #e6e6e6;
+  transform: scale(1.1);
 }

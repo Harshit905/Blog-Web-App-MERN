@@ -19,12 +19,12 @@
     font-weight: bold;
     border: 2px solid #ccc;
     transition-duration: 0.4s;
-    background: url('../assets/taniaflower.png');
+    /* background: url('../assets/taniaflower.png'); */
     background-size: cover;
   }
   
   .dashboard-block-1 {
-    background-color: #3498db;
+    background-color: #3498db7a;
   
   }
   .linkDashboard{
@@ -32,7 +32,7 @@
     text-decoration: none;
   }
   .dashboard-block-2 {
-    background-color: #e74c3c;
+    background-color: #e74d3c77;
   }
   
   .dashboard-block:hover {

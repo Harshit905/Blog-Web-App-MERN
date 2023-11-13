@@ -1,21 +1,31 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation, useHistory } from "react-router-dom";
 import userContext from "../context/users/userContext"
+import blogContext from "../context/blogs/blogContext";
+
 import './Navbar.css';
 const Navbar = (props) => {
+
+
+  const context_blogs = useContext(blogContext);
+  const { blogs, getAllBlogs,fetchCategories,categories,getBlogsByUserId } = context_blogs;
+  const context_for_user = useContext(userContext)
+  const { users, getUsers,getUserByUserId } = context_for_user;
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isInfoBoxOpen, setIsInfoBoxOpen] = useState(false);
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
         getUsers()
+        getAllBlogs();
     }
     else {
         history.push("/login")
+        getAllBlogs()
     }
 
 }, [])
-  const context_for_user = useContext(userContext)
-  const { users, getUsers } = context_for_user;
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isInfoBoxOpen, setIsInfoBoxOpen] = useState(false);
+  
 
   const togglerClick = () => {
     setIsNavOpen(!isNavOpen);
@@ -30,16 +40,11 @@ const Navbar = (props) => {
   const handleLogout = () => {
    togglerClick()
     localStorage.removeItem('token');
+    getAllBlogs()
     history.push('/login')
-
   }
 
   let location = useLocation();
-
-  React.useEffect(() => {
-    //  console.log(location.pathname)
-  }, [location]);
-
 
   const openBox = () => {
     setIsInfoBoxOpen(true);
@@ -47,6 +52,7 @@ const Navbar = (props) => {
 
   const closeBox = () => {
     setIsInfoBoxOpen(false);
+    getUserByUserId(users._id)
   }
 
   
@@ -93,7 +99,7 @@ const Navbar = (props) => {
               <p className='name_user'>{users.name}</p>
               <p className='email_user'>{users.email}</p>
               <hr/>
-              <Link className="get_info_user"  onClick={closeBox} closeBox={closeBox} to="/aboutuser">Get Your Info </Link>
+              <Link className="get_info_user"  onClick={closeBox} to={`/aboutuser/${users._id}`} >Get Your Info</Link>
             </div>
 
 

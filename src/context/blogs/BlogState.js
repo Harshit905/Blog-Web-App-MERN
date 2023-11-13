@@ -7,7 +7,9 @@ const BlogState = (props) => {
   const [blogs, setBlogs] = useState(blogsInitial);
   const [Bookmarkedblogs, setBookmarkedblogs] = useState(blogsInitial);
   const [userblogs, setuserBlogs] = useState(blogsInitial);
-
+  const [userblogsById, setuserBlogsById] = useState(blogsInitial);
+  const [categories, setCategories] = useState([]);
+  const [likes, setLiked] = useState(false);
   const host = "http://localhost:5000";
   //get all blogs
 
@@ -38,6 +40,18 @@ const BlogState = (props) => {
     // console.log(json)
     setuserBlogs(json.reverse());
   };
+  const getBlogsByUserId = async (id) => {
+    // API Call
+    const response = await fetch(`${host}/api/blogs/blogs-by-user/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+    const json = await response.json();
+    // console.log(json)
+    setuserBlogsById(json.reverse());
+  };
 
   //get blog by id
   const getBlogById = async (id) => {
@@ -66,6 +80,26 @@ const BlogState = (props) => {
     const json = await response.json();
     // console.log(json)
     setBookmarkedblogs(json);
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch(`${host}/api/blogs/categories`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+      })
+      if (response.ok) {
+        const data = await response.json();
+        setCategories(data);
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const bookmark = async (id) => {
@@ -120,6 +154,26 @@ const BlogState = (props) => {
       // Handle the error as needed, such as displaying an error message.
     }
   };
+  const likeBlog = async (blogId) => {
+    try {
+      const response = await fetch(`${host}/api/blogs/${blogId}/like`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          "auth-token": localStorage.getItem("token"),
+        },
+        // body: JSON.stringify({}),
+      });
+
+      if (response.status === 200) {
+        setLiked(!likes);
+        getAllBlogs();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const addBlog = async (title, content, tag, inbrief, author, category) => {
     try {
       const response = await fetch(`${host}/api/blogs/addblog`, {
@@ -187,7 +241,7 @@ const BlogState = (props) => {
     }
   };
 
-  const editBlog = async (id, title, content, tag, author, inbrief, date) => {
+  const editBlog = async (id, title, content, tag, author, inbrief, category, date) => {
     try {
       const response = await fetch(`${host}/api/blogs/updateblog/${id}`, {
         method: "PUT",
@@ -195,7 +249,7 @@ const BlogState = (props) => {
           "Content-Type": "application/json",
           "auth-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify({ title, content, tag, author, inbrief, date }),
+        body: JSON.stringify({ title, content, tag, author, inbrief, category, date }),
       });
 
       if (response.ok) {
@@ -220,6 +274,9 @@ const BlogState = (props) => {
         userblogs,
         blogs,
         Bookmarkedblogs,
+        categories,
+        likes,
+        userblogsById,
         addBlog,
         deleteBlog,
         editBlog,
@@ -228,7 +285,10 @@ const BlogState = (props) => {
         getBlogById,
         fetchBookmarkedBlogs,
         bookmark,
-        unbookmark
+        unbookmark,
+        fetchCategories,
+        likeBlog,
+        getBlogsByUserId
       }}
     >
       {props.children}

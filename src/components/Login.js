@@ -1,7 +1,14 @@
-import React, { useState } from 'react'
-import { Link,useHistory } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import blogContext from "../context/blogs/blogContext";
+import userContext from "../context/users/userContext";
+
 import './Login.css';
 const Login = (props) => {
+  const context_blogs = useContext(blogContext);
+  const context_users = useContext(userContext);
+  const { blogs, getAllBlogs, fetchCategories, categories } = context_blogs;
+  const { getUsers,users } = context_users;
   const [credentials, setCredentials] = useState({ email: "", password: "" })
   let history = useHistory();
   const handleSubmit = async (e) => {
@@ -19,12 +26,14 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authToken);
+      getAllBlogs();
+      getUsers();
       history.push("/");
-      props.showAlert("Logged in Successfully","success")
+      props.showAlert("Logged in Successfully", "success")
     }
     else {
 
-      props.showAlert("Invalid Credentials","danger")
+      props.showAlert("Invalid Credentials", "danger")
     }
   }
   const onChange = (e) => {
@@ -34,7 +43,7 @@ const Login = (props) => {
   return (
 
     <form onSubmit={handleSubmit}>
-    <p className='headinglogsignpage'>Please Signup/Login to continue...</p>
+      <p className='headinglogsignpage'>Please Signup/Login to continue...</p>
       <div className="login1">
         <img id="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMr_Ky37u_30imoav7-kzi01LCBOh88WP6hu2r3IkXUJaQsWexdA" alt="avatar" />
         <p className='p_login'><b>Member Login</b></p>
